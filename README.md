@@ -1,16 +1,19 @@
-# React + Vite
+📊 Dashboard Financeiro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um dashboard financeiro desenvolvido para ajudar no controle e análise de gastos do dia a dia de forma simples e prática.
 
-Currently, two official plugins are available:
+## 📌 Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O objetivo deste projeto é permitir que o usuário registre suas despesas diárias e visualize de forma clara como seu dinheiro está sendo utilizado.  
+Com o auxílio de gráficos e relatórios, o usuário pode analisar seus hábitos financeiros e tomar decisões mais conscientes sobre seus gastos.
 
-## React Compiler
+## 🚀 Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Registro de gastos do dia a dia
+- Organização das despesas por categorias (produtos ou serviços)
+- Visualização de gráficos para análise financeira
+- Relatórios por período:
+  - Diário
+  - Semanal
+  - Mensal
+- Interface simples e intuitiva
