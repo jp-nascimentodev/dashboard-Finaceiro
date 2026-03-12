@@ -5,19 +5,30 @@ const Registrar = () => {
 
     const [gasto, setGasto] = useState("")
     const [valor,setValor] = useState("")
-    const [listGastos, setListGastos] = useState([])
+    const [listGastos, setListGastos] =  useState(() => {
+
+      const saved = localStorage.getItem("listgastos");
+      return saved ? JSON.parse(saved) : []
+    }
+
+    ) 
 
 
     const handleSubmit = (e) =>{
         e.preventDefault()
 
+         if(!gasto || !valor) return
+
         const data = {
           gasto,
           valor,
         }
+        const novaLista = [...listGastos, data]
 
-        setListGastos([...listGastos, data])
-        
+
+        setListGastos(novaLista)
+        localStorage.setItem("listgastos", JSON.stringify(novaLista))
+        console.log(listGastos)
         setGasto("")
         setValor("")
     }
@@ -44,19 +55,21 @@ const Registrar = () => {
             </form>
         </div>
 
-        <div className="bg-cyan-100 w-96 h-96 rounded-2xl p-5 shadow-2xl">
-          <h3 className="font-bold text-red-600 mb-5 text-center">Gasto recentes</h3>
-          {listGastos && listGastos.map((gasto,index) =>(
-
-              <ul key={index}>
-                <li>
+        <div className="bg-cyan-100 w-96 h-96 rounded-2xl p-5 shadow-2xl overflow-scroll">
+          <h3 className="font-bold text-red-600 mb-5 text-center ">Gasto recentes</h3>
+         <div>
+         <ul>
+           {listGastos.map((gasto,index) =>(
+             
+             <li key={index}>
                 <div className="card">
                     <p className="card-title text-red-500">{gasto.gasto}</p>
                     <p className="text-red-500">{gasto.valor}</p>
                 </div>
                 </li>
-              </ul>
             ))}
+         </ul>
+          </div> 
         </div>
     </div>
   )
