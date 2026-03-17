@@ -1,17 +1,12 @@
 import { useState } from "react";
+import { gastoStore } from "../../store/gastoStore";
 
 
 const Registrar = () => {
-
+    
     const [gasto, setGasto] = useState("")
     const [valor,setValor] = useState("")
-    const [listGastos, setListGastos] =  useState(() => {
-
-      const saved = localStorage.getItem("listgastos");
-      return saved ? JSON.parse(saved) : []
-    }
-
-    ) 
+    const {listGastos,  addGastos} = gastoStore()
 
 
     const handleSubmit = (e) =>{
@@ -23,11 +18,10 @@ const Registrar = () => {
           gasto,
           valor,
         }
-        const novaLista = [...listGastos, data]
+       
 
 
-        setListGastos(novaLista)
-        localStorage.setItem("listgastos", JSON.stringify(novaLista))
+        addGastos(data)
         console.log(listGastos)
         setGasto("")
         setValor("")
