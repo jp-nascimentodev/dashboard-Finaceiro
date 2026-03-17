@@ -4,7 +4,7 @@ const Grafico = ({data}) => {
   return (
     <div style={{ width: '100%', height: 400, padding: '20px' }}>
 
-        <h2>Fluxo de caixa mensal</h2>
+        <h2 className="font-bold text-2xl">Fluxo de caixa mensal</h2>
 
         <ResponsiveContainer>
             <AreaChart data={data}>

@@ -18,7 +18,7 @@ const Relatorios = () => {
     <div className=''>
       <h1 className='text-2xl ml-10 mt-5 font-bold'>Gastos ao longo do tempo</h1>
       <div className='flex justify-between items-center gap-15'>
-        <div className='bg-emerald-200  flex-3 w-200 h-100 mt-5 ml-10 rounded-box border-2'>
+        <div className='bg-emerald-200  flex-4 w-200 h-100 mt-5 ml-10 rounded-box border-2'>
           <Grafico data={listGastos}/>
         </div>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { gastoStore } from "../../store/gastoStore";
+import { dateFormate } from "../../utils/date";
 
 
 const Registrar = () => {
@@ -8,7 +9,9 @@ const Registrar = () => {
     const [valor,setValor] = useState("")
     const {listGastos,  addGastos} = gastoStore()
 
-
+    const recentesGastos = listGastos.slice(-5)
+    recentesGastos.reverse()
+    
     const handleSubmit = (e) =>{
         e.preventDefault()
 
@@ -17,6 +20,7 @@ const Registrar = () => {
         const data = {
           gasto,
           valor,
+          data: dateFormate()
         }
        
 
@@ -53,12 +57,16 @@ const Registrar = () => {
           <h3 className="font-bold text-red-600 mb-5 text-center ">Gasto recentes</h3>
          <div>
          <ul>
-           {listGastos.map((gasto,index) =>(
+           {recentesGastos.map((gasto,index) =>(
              
              <li key={index}>
                 <div className="card">
                     <p className="card-title text-red-500">{gasto.gasto}</p>
-                    <p className="text-red-500">{gasto.valor}</p>
+                    <div className="flex justify-between">
+                      <p className="text-red-500">{gasto.valor}</p>
+                      <p className="text-red-500">{gasto.data}</p>
+                    </div>
+                    <p></p>
                 </div>
                 </li>
             ))}
